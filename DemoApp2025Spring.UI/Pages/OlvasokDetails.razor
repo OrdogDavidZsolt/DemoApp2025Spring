@@ -1,0 +1,43 @@
+﻿@page "/olvasok/{id}"
+@using DemoApp2025Spring.Shared
+@using DemoApp2025Spring.UI.Services
+@inject IReadersService ReadersService
+@inject NavigationManager NavigationManager
+
+<h3>Reader details</h3>
+
+@if (_reader is not null)
+{
+    <ReaderForm Olvaso="_reader" OnValidSubmit="UpdateAsync" ButtonText="Update reader" />
+
+    <button class="btn btn-danger" @onclick="DeleteAsync">Delete reader</button>
+}
+else
+{
+    <p>Loading...</p>
+}
+
+@code {
+
+    private Olvasok _reader;
+
+    [Parameter]
+    public string Id { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        _reader = await ReadersService.GetReaderAsync(Id);
+    }
+
+    private async Task DeleteAsync()
+    {
+        await ReadersService.DeleteReaderAsync(Id);
+        NavigationManager.NavigateTo("/olvasok");
+    }
+
+    private async Task UpdateAsync()
+    {
+        await ReadersService.UpdateReaderAsync(Id, _reader);
+        NavigationManager.NavigateTo("/olvasok");
+    }
+}

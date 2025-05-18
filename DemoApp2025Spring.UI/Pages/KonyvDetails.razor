@@ -1,0 +1,43 @@
+﻿@page "/konyvek/{id}"
+@using DemoApp2025Spring.Shared
+@using DemoApp2025Spring.UI.Services
+@inject IBooksService BooksService
+@inject NavigationManager NavigationManager
+
+<h3>Book details</h3>
+
+@if (_book is not null)
+{
+    <BookForm Konyvek="_book" OnValidSubmit="UpdateAsync" ButtonText="Update book" />
+
+    <button class="btn btn-danger" @onclick="DeleteAsync">Delete book</button>
+}
+else
+{
+    <p>Loading...</p>
+}
+
+@code {
+
+    private Konyvek _book;
+
+    [Parameter]
+    public string Id { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        _book = await BooksService.GetBookAsync(Id);
+    }
+
+    private async Task DeleteAsync()
+    {
+        await BooksService.DeleteBookAsync(Id);
+        NavigationManager.NavigateTo("/konyvek");
+    }
+
+    private async Task UpdateAsync()
+    {
+        await BooksService.UpdateBookAsync(Id, _book);
+        NavigationManager.NavigateTo("/konyvek");
+    }
+}

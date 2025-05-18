@@ -1,0 +1,20 @@
+﻿@page "/olvasok/add"
+@using DemoApp2025Spring.Shared
+@using DemoApp2025Spring.UI.Services
+@inject IReadersService ReadersService
+@inject NavigationManager NavigationManager
+
+<h3>Add reader</h3>
+
+<ReaderForm Olvaso="_reader" OnValidSubmit="AddReaderAsync" ButtonText="Add reader" />
+
+@code {
+
+    private Olvasok _reader = new();
+
+    private async Task AddReaderAsync()
+    {
+        await ReadersService.AddReaderAsync(_reader);
+        NavigationManager.NavigateTo("/olvasok");
+    }
+}

@@ -1,0 +1,20 @@
+@page "/konyvek/add"
+@using DemoApp2025Spring.Shared
+@using DemoApp2025Spring.UI.Services
+@inject IBooksService BooksService
+@inject NavigationManager NavigationManager
+
+<h3>Add book</h3>
+
+<BookForm Konyv="_book" OnValidSubmit="AddBookAsync" ButtonText="Add book" />
+
+@code {
+    
+    private Konyvek _book = new();
+
+    private async Task AddBookAsync()
+    {
+        await BooksService.AddBookAsync(_book);
+        NavigationManager.NavigateTo("/konyvek");
+    }
+}

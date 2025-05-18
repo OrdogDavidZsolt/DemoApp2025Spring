@@ -1,0 +1,43 @@
+﻿@page "/kolcsonzes/{id}"
+@using DemoApp2025Spring.Shared
+@using DemoApp2025Spring.UI.Services
+@inject IBorrowsService BorrowsService
+@inject NavigationManager NavigationManager
+
+<h3>Borrow details</h3>
+
+@if (_borrow is not null)
+{
+    <BorrowForm Kolcsonzes="_borrow" OnValidSubmit="UpdateAsync" ButtonText="Update borrow" />
+
+    <button class="btn btn-danger" @onclick="DeleteAsync">Delete borrow</button>
+}
+else
+{
+    <p>Loading...</p>
+}
+
+@code {
+
+    private Kolcsonzes _borrow;
+
+    [Parameter]
+    public string Id { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        _borrow = await BorrowsService.GetBorrowAsync(Id);
+    }
+
+    private async Task DeleteAsync()
+    {
+        await BorrowsService.DeleteBorrowAsync(Id);
+        NavigationManager.NavigateTo("/kolcsonzes");
+    }
+
+    private async Task UpdateAsync()
+    {
+        await BorrowsService.UpdateBorrowAsync(Id, _borrow);
+        NavigationManager.NavigateTo("/kolcsonzes");
+    }
+}
