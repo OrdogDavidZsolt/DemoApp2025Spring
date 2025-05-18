@@ -1,0 +1,37 @@
+﻿@using DemoApp2025Spring.Shared
+
+<EditForm Model="Olvaso" OnValidSubmit="OnValidSubmit">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <div class="mb-3">
+        <label class="form-label">Név</label>
+        <InputText @bind-Value="Olvaso.OlvasoNev" class="form-control" />
+        <ValidationMessage For="() => Olvaso.OlvasoNev" />
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Lakcím</label>
+        <InputText type="address" @bind-Value="Olvaso.Lakcim" class="form-control" />
+        <ValidationMessage For="() => Olvaso.Lakcim" />
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Születési dátum</label>
+        <InputDate @bind-Value="Olvaso.SzuletesiDatum" class="form-control" />
+        <ValidationMessage For="() => Olvaso.SzuletesiDatum" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">@ButtonText</button>
+</EditForm>
+
+@code {
+
+    [Parameter]
+    public Olvasok Olvaso { get; set; }
+
+    [Parameter]
+    public Func<Task> OnValidSubmit { get; set; }
+
+    [Parameter]
+    public string ButtonText { get; set; }
+
+}

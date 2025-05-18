@@ -1,0 +1,42 @@
+﻿@using DemoApp2025Spring.Shared
+
+<EditForm Model="Kolcson" OnValidSubmit="OnValidSubmit">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <div class="mb-3">
+        <label class="form-label">Olvasó szám</label>
+        <InputNumber @bind-Value="Kolcson.OlvasoSzam" class="form-control" />
+        <ValidationMessage For="() => Kolcson.OlvasoSzam" />
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Leltári szám</label>
+        <InputNumber @bind-Value="Kolcson.LeltariSzam" class="form-control" />
+        <ValidationMessage For="() => Kolcson.LeltariSzam" />
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Kölcsönzés ideje</label>
+        <InputDate @bind-Value="Kolcson.KolcsonzesIdeje" class="form-control" />
+        <ValidationMessage For="() => Kolcson.KolcsonzesIdeje" />
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Visszahozás ideje</label>
+        <InputDate @bind-Value="Kolcson.VisszahozasHatarido" class="form-control" />
+        <ValidationMessage For="() => Kolcson.VisszahozasHatarido" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">@ButtonText</button>
+</EditForm>
+
+@code {
+
+    [Parameter]
+    public Kolcsonzes Kolcson { get; set; }
+
+    [Parameter]
+    public Func<Task> OnValidSubmit { get; set; }
+
+    [Parameter]
+    public string ButtonText { get; set; }
+
+}
