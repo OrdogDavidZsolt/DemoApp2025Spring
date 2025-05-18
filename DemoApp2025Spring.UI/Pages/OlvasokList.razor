@@ -1,5 +1,52 @@
-﻿<h3>OlvasokList</h3>
+﻿@page "/olvasok"
+@using DemoApp2025Spring.Shared
+@using DemoApp2025Spring.UI.Services
+@inject IReadersService ReadersService
+
+<h3>Readers</h3>
+
+<div class="mb-3">
+    <a href="/olvasok/add" class="btn btn-primary">Add reader</a>
+</div>
+
+@if (_olvaso is not null)
+{
+    <table class="table table-hover border">
+        <thead>
+            <tr>
+                <th>Olvasószám</th>
+                <th>Név</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var olvaso in _olvaso)
+            {
+                <tr>
+                    <td>@olvaso.OlvasoSzam</td>
+                    <td>@olvaso.OlvasoNev</td>
+                    <td>
+                        <a href="/olvasok/@olvaso.OlvasoSzam">
+                            Details
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>Loading...</p>
+}
 
 @code {
+
+    private List<Olvasok> _olvaso;
+
+    protected override async Task OnInitializedAsync()
+    {
+        _olvaso = await ReadersService.GetReaderAsync();
+    }
 
 }
