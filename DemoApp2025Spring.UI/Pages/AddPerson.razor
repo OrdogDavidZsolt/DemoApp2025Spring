@@ -1,0 +1,20 @@
+@page "/people/add"
+@using DemoApp2025Spring.Shared
+@using DemoApp2025Spring.UI.Services
+@inject IPeopleService PeopleService
+@inject NavigationManager NavigationManager
+
+<h3>Add person</h3>
+
+<PersonForm Person="_person" OnValidSubmit="AddPersonAsync" ButtonText="Add person" />
+
+@code {
+    
+    private Person _person = new();
+
+    private async Task AddPersonAsync()
+    {
+        await PeopleService.AddPersonAsync(_person);
+        NavigationManager.NavigateTo("/people");
+    }
+}
