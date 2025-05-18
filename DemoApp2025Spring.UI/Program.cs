@@ -9,7 +9,6 @@ builder.RootComponents.Add<HeadOutlet>("head::after");
 
 builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri("http://localhost:8080") });
 
-builder.Services.AddScoped<IPeopleService, PeopleService>();
 builder.Services.AddScoped<IBooksService, BooksService>();
 builder.Services.AddScoped<IBorrowsService, BorrowsService>();
 builder.Services.AddScoped<IReadersService, ReadersService>();
