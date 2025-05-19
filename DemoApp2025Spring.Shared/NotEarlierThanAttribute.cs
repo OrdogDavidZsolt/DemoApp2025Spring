@@ -2,7 +2,7 @@
 
 namespace DemoApp2025Spring.Shared
 {
-[AttributeUsage(AttributeTargets.Property | AttributeTargets.Field, AllowMultiple = false)]
+    [AttributeUsage(AttributeTargets.Property | AttributeTargets.Field, AllowMultiple = false)]
     public class NotEarlierThanAttribute : ValidationAttribute
     {
         private readonly DateOnly _minDate;

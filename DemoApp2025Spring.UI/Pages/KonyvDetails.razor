@@ -8,7 +8,7 @@
 
 @if (_book is not null)
 {
-    <BookForm Konyvek="_book" OnValidSubmit="UpdateAsync" ButtonText="Update book" />
+    <BookForm Konyv="_book" OnValidSubmit="UpdateAsync" ButtonText="Update book" />
 
     <button class="btn btn-danger" @onclick="DeleteAsync">Delete book</button>
 }

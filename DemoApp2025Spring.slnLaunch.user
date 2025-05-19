@@ -4,11 +4,13 @@
     "Projects": [
       {
         "Path": "DemoApp2025Spring.Api\\DemoApp2025Spring.Api.csproj",
-        "Action": "Start"
+        "Action": "Start",
+        "DebugTarget": "http"
       },
       {
         "Path": "DemoApp2025Spring.UI\\DemoApp2025Spring.UI.csproj",
-        "Action": "Start"
+        "Action": "Start",
+        "DebugTarget": "http"
       }
     ]
   }

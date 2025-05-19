@@ -8,7 +8,7 @@
 
 @if (_borrow is not null)
 {
-    <BorrowForm Kolcsonzes="_borrow" OnValidSubmit="UpdateAsync" ButtonText="Update borrow" />
+    <BorrowForm Kolcson="_borrow" OnValidSubmit="UpdateAsync" ButtonText="Update borrow" />
 
     <button class="btn btn-danger" @onclick="DeleteAsync">Delete borrow</button>
 }
