@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoApp2025Spring.UI", "Dem
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoApp2025Spring.Shared", "DemoApp2025Spring.Shared\DemoApp2025Spring.Shared.csproj", "{7DB2C97A-646C-4AF6-B6F9-71C4C2A0DC1F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoApp2025Spring.ApiTests", "DemoApp2025Spring.ApiTests\DemoApp2025Spring.ApiTests.csproj", "{A9F809C0-09E5-4562-8FA9-084711F105A2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{7DB2C97A-646C-4AF6-B6F9-71C4C2A0DC1F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7DB2C97A-646C-4AF6-B6F9-71C4C2A0DC1F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7DB2C97A-646C-4AF6-B6F9-71C4C2A0DC1F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A9F809C0-09E5-4562-8FA9-084711F105A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A9F809C0-09E5-4562-8FA9-084711F105A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A9F809C0-09E5-4562-8FA9-084711F105A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A9F809C0-09E5-4562-8FA9-084711F105A2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
