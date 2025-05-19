@@ -2,6 +2,7 @@
 @using DemoApp2025Spring.Shared
 @using DemoApp2025Spring.UI.Services
 @inject IBooksService BooksService
+@inject NavigationManager NavigationManager
 
 <h3>Books</h3>
 
@@ -25,7 +26,7 @@
                 <tr>
                     <td>@konyv.LeltariSzam</td>
                     <td>@konyv.Cim</td>
-                    <td>
+                    <td>                       
                         <a href="/konyvek/@konyv.LeltariSzam">
                             Details
                         </a>
